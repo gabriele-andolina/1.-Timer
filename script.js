@@ -15,13 +15,24 @@ class Timer {
     };
     
     tick = () => {
-        const timeRemaining = parseFloat(this.durationInput.value);
-        this.durationInput.value = timeRemaining - 1;
+        // Below, the timeRemaining const is assigned the value retrieved by the timeRemaining getter (get method).
+        // The value is treated as an instance variable but what happens behind the scenes is that the 
+        // timeRemaining() get function is invoked to retrieve the needed value.
+        const timeRemaining = this.timeRemaining;
+        this.timeRemaining = timeRemaining - 1;
     };
 
     pause = () => {
         clearInterval(this.intervalId);
     };
+
+    get timeRemaining() {
+        return parseFloat(this.durationInput.value);
+    }
+
+    set timeRemaining(time) {
+        this.durationInput.value = time;
+    }
 };
 
 const durationInput = document.querySelector('#duration');
