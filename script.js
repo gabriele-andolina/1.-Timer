@@ -15,11 +15,13 @@ class Timer {
     };
     
     tick = () => {
-        // Below, the timeRemaining const is assigned the value retrieved by the timeRemaining getter (get method).
-        // The value is treated as an instance variable but what happens behind the scenes is that the 
-        // timeRemaining() get function is invoked to retrieve the needed value.
-        const timeRemaining = this.timeRemaining;
-        this.timeRemaining = timeRemaining - 1;
+        // Compared to the previous commit, here I'm condensing all the logic into one line.
+        // What's happening here, behind the scenes, is that:
+        // 1) on the right-hand side of the equal sign, I'm calling the get method to retrieve 
+        // the value of the input (the remaining time we're at at a specific point in time);
+        // 2) on the left-hand side of the equal sign, I'm calling the set method to set the updated 
+        // remaining time.
+        this.timeRemaining = this.timeRemaining - 1;
     };
 
     pause = () => {
