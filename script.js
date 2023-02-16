@@ -10,7 +10,7 @@ class Timer {
 
     start = () => {
         this.tick();
-        const timer = setInterval(this.tick, 1000);
+        this.timer = setInterval(this.tick, 1000);
 
     };
     
@@ -19,7 +19,7 @@ class Timer {
     };
 
     pause = () => {
-        clearInterval(timer);
+        clearInterval(this.timer);
     };
 };
 
